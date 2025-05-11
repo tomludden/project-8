@@ -40,8 +40,8 @@ A RESTful API for managing a digital art gallery with **artists, paintings**, an
 
 ### 1. Clone and install
 
-git clone https://github.com/tomludden/project-7.git \
-cd project-7\
+git clone https://github.com/tomludden/project-8.git \
+cd project-8\
 npm install
 
 ### 2. Environment Setup
@@ -118,7 +118,7 @@ You can seed mock data using:
 
 ### Role Abilities
 
-**user** -- View paintings, create paintings\
+**user** -- View paintings, create paintings, delete themselves\
 **admin** -- Full control over all resources
 
 ###### Middleware: isAuth, isAdmin
