@@ -13,11 +13,7 @@ const userSeedData = async () => {
       .listCollections({ name: 'users' })
       .toArray()
 
-    const keepUserIds = [
-      '68161176f57313443ce20393',
-      '681611cef57313443ce20396',
-      '681624f26a7edb61b3f9a7e9'
-    ]
+    const keepUserIds = ['68161176f57313443ce20393']
 
     if (collectionExists.length > 0) {
       await User.deleteMany({ _id: { $nin: keepUserIds } })

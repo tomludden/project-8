@@ -1,6 +1,6 @@
 # Art Gallery API
 
-A RESTful API for managing a digital art gallery with **artists, paintings**, and **user authentication**. Built using **Node.js, Express, MongoDB, dotenv, bcrypt**, and **JWT-based auth**, with role-based access control.
+A RESTful API for managing a digital art gallery with **artists, paintings**, and **user authentication**. Built using **Node.js, Express, MongoDB, dotenv, , multer, cloudinary, bcrypt**, and **JWT-based auth**, with role-based access control.
 
 ---
 
