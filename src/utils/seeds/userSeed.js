@@ -13,16 +13,16 @@ const userSeedData = async () => {
       .listCollections({ name: 'users' })
       .toArray()
 
-    const keepUserIds = ['68161176f57313443ce20393']
+    const keepUserId = ['682231f7f3ec7c58aa9fe568']
 
     if (collectionExists.length > 0) {
-      await User.deleteMany({ _id: { $nin: keepUserIds } })
+      await User.deleteMany({ _id: { $nin: keepUserId } })
       console.log('All users deleted except the specified ones.')
     }
 
     const hashedUsers = await Promise.all(
       users.map(async (user) => ({
-        userName: user.userName,
+        username: user.username,
         password: await bcrypt.hash(user.password, 10),
         role: user.role || 'user'
       }))

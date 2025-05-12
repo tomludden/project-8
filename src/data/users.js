@@ -1,16 +1,16 @@
 const users = [
-  { userName: 'kai', password: 'kai123' },
-  { userName: 'jess', password: 'jess123' },
-  { userName: 'zara', password: 'zara123' },
-  { userName: 'milo', password: 'milo123' },
-  { userName: 'niko', password: 'niko123' },
-  { userName: 'ivy', password: 'ivy123' },
-  { userName: 'leo', password: 'leo123' },
-  { userName: 'aria', password: 'aria123' },
-  { userName: 'ezra', password: 'ezra123' },
-  { userName: 'luna', password: 'luna123' },
-  { userName: 'noah', password: 'noah123' },
-  { userName: 'jude', password: 'jude123' },
-  { userName: 'elle', password: 'elle123' }
+  { username: 'kai', password: 'kai123' },
+  { username: 'jess', password: 'jess123' },
+  { username: 'zara', password: 'zara123' },
+  { username: 'milo', password: 'milo123' },
+  { username: 'niko', password: 'niko123' },
+  { username: 'ivy', password: 'ivy123' },
+  { username: 'leo', password: 'leo123' },
+  { username: 'aria', password: 'aria123' },
+  { username: 'ezra', password: 'ezra123' },
+  { username: 'luna', password: 'luna123' },
+  { username: 'noah', password: 'noah123' },
+  { username: 'jude', password: 'jude123' },
+  { username: 'elle', password: 'elle123' }
 ]
 module.exports = users
