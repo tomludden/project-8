@@ -1,4 +1,5 @@
 const Painting = require('../models/paintings')
+const Artist = require('../models/artists')
 
 const deleteFile = require('../../utils/deleteFile')
 
@@ -38,23 +39,45 @@ const getPainting = async (req, res, next) => {
 
 const postPainting = async (req, res, next) => {
   try {
-    const newPainting = new Painting(req.body)
+    const { painting, img, year, category, artist: artistName } = req.body
 
-    if (req.file) {
-      console.log(req.file)
-      newPainting.img = req.file.path
+    if (!artistName) {
+      return res.status(400).json({ message: 'Artist name is required' })
     }
-
     if (req.user.role === 'admin') {
       newPainting.verified = true
     } else {
       newPainting.verified = false
     }
 
-    const paintingSaved = await newPainting.save()
-    return res.status(201).json(paintingSaved)
+    const foundArtist = await Artist.findOne({
+      artist: { $regex: new RegExp(`^${artistName}$`, 'i') }
+    })
+
+    if (!foundArtist) {
+      return res.status(404).json({ message: 'Artist not found' })
+    }
+
+    const newPainting = new Painting({
+      painting,
+      img,
+      year,
+      category,
+      artist: foundArtist._id
+    })
+
+    const savedPainting = await newPainting.save()
+
+    if (!foundArtist.paintings.includes(savedPainting._id)) {
+      foundArtist.paintings.push(savedPainting._id)
+      await foundArtist.save()
+    }
+
+    return res.status(201).json(savedPainting)
   } catch (error) {
-    return res.status(400).json({ error: error.message })
+    return res
+      .status(400)
+      .json({ message: 'Painting not saved', error: error.message })
   }
 }
 
