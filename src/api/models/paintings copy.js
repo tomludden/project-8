@@ -35,7 +35,7 @@ const paintingSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-paintingSchema.index({ album: 1, artist: 1 }, { unique: true })
+paintingSchema.index({ painting: 1, artist: 1 }, { unique: true })
 
 const Painting = mongoose.model('Painting', paintingSchema, 'paintings')
 
